@@ -45,3 +45,18 @@ print(produtos)
 print(preco)
 
 # Inserir um valor
+
+produtos.insert(1, 'airpod')
+print(produtos)
+
+#contar valores
+print(produtos.count('airpod'))
+
+# ordernar
+preco.sort() # do maior para o menor
+print(preco)
+
+preco.sort(reverse=True)# do menor para o menor
+print(preco)
+
+# 
