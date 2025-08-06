@@ -11,7 +11,7 @@ respostas = [sub,som,mult,div]
 print(respostas)
 
 op = respostas.index(sub)
-print(op)
+
 
  
     
