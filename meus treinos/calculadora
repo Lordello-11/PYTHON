@@ -1,0 +1,127 @@
+def adicionar(x, y):
+    return x + y
+
+def subtrair(x, y):
+    return x - y
+
+def multiplicar(x, y):
+    return x * y
+
+def dividir(x, y):
+    if y == 0:
+        return "Erro: Divisão por zero"
+    return x / y
+
+def calculadora():
+    print("Selecione a operação:")
+    print("1 - Adição")
+    print("2 - Subtração")
+    print("3 - Multiplicação")
+    print("4 - Divisão")
+
+    escolha = input("Digite sua escolha (1/2/3/4): ")
+
+    if escolha in ('1', '2', '3', '4'):
+        try:
+            num1 = float(input("Digite o primeiro número: "))
+            num2 = float(input("Digite o segundo número: "))
+        except ValueError:
+            print("Entrada inválida. Por favor, insira números válidos.")
+            return
+
+        if escolha == '1':
+            print(f"{num1} + {num2} = {adicionar(num1, num2)}")
+
+        elif escolha == '2':
+            print(f"{num1} - {num2} = {subtrair(num1, num2)}")
+
+        elif escolha == '3':
+            print(f"{num1} * {num2} = {multiplicar(num1, num2)}")
+
+        elif escolha == '4':
+            print(f"{num1} / {num2} = {dividir(num1, num2)}")
+
+    else:
+        print("Opção inválida. Tente novamente.")
+
+# Executa a calculadora
+calculadora()
+
+from fpdf import FPDF
+
+texto = """
+CALCULADORA EM PYTHON - EXPLICADA
+
+1. DEFINIÇÃO DAS FUNÇÕES MATEMÁTICAS:
+
+def adicionar(x, y):
+    return x + y
+# Soma dois números
+
+def subtrair(x, y):
+    return x - y
+# Subtrai o segundo número do primeiro
+
+def multiplicar(x, y):
+    return x * y
+# Multiplica dois números
+
+def dividir(x, y):
+    if y == 0:
+        return "Erro: Divisão por zero"
+    return x / y
+# Divide x por y, mas evita divisão por zero
+
+2. FUNÇÃO PRINCIPAL - CALCULADORA:
+
+def calculadora():
+    print("Selecione a operação:")
+    print("1 - Adição")
+    print("2 - Subtração")
+    print("3 - Multiplicação")
+    print("4 - Divisão")
+
+# Mostra as opções para o usuário
+
+    escolha = input("Digite sua escolha (1/2/3/4): ")
+# Lê a escolha do usuário
+
+    if escolha in ('1', '2', '3', '4'):
+        try:
+            num1 = float(input("Digite o primeiro número: "))
+            num2 = float(input("Digite o segundo número: "))
+        except ValueError:
+            print("Entrada inválida. Por favor, insira números válidos.")
+            return
+
+# Tenta ler dois números como entrada do usuário. Se der erro, avisa.
+
+        if escolha == '1':
+            print(f"{num1} + {num2} = {adicionar(num1, num2)}")
+        elif escolha == '2':
+            print(f"{num1} - {num2} = {subtrair(num1, num2)}")
+        elif escolha == '3':
+            print(f"{num1} * {num2} = {multiplicar(num1, num2)}")
+        elif escolha == '4':
+            print(f"{num1} / {num2} = {dividir(num1, num2)}")
+
+# Executa a operação correspondente
+
+    else:
+        print("Opção inválida. Tente novamente.")
+# Se o usuário digitar uma opção inválida
+
+calculadora()
+# Executa a função principal
+"""
+
+# Criando e salvando o PDF
+pdf = FPDF()
+pdf.add_page()
+pdf.set_auto_page_break(auto=True, margin=15)
+pdf.set_font("Arial", size=12)
+
+for linha in texto.split('\n'):
+    pdf.multi_cell(0, 10, linha)
+
+pdf.output("calculadora_python_explicada.pdf")
